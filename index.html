@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Melodia — Sua Música, Sua Forma</title>
+
+  <!-- Paleta de cores (variáveis comentadas):
+       --prim: #6C5CE7 (violeta vibrante)
+       --sec:  #00B894 (verde-água)
+       --accent: #FFD166 (amarelo quente)
+       --dark: #0F172A (quase preto)
+       --muted: #94A3B8 (cinza suave)
+  -->
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p6O7XQXn1fN+2yqT1wKx0mQ0gKq1y3rQk0eV6uN2XQ8jz8Y6h9n1Wf2c3Dk8z7f5+v6K8Z7Q9a0b3c4d5e6f7g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Tailwind Play CDN (rápido para protótipos) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            prim: '#6C5CE7',
+            sec: '#00B894',
+            accent: '#FFD166',
+            dark: '#0F172A',
+            muted: '#94A3B8',
+            'prim-light': '#8C7EEB', // Um tom mais claro do primário para gradientes
+            'sec-light': '#33C9A7'   // Um tom mais claro do secundário
+          },
+          fontFamily: {
+            pop: ['Poppins','sans-serif'],
+            inter: ['Inter','sans-serif']
+          },
+          boxShadow: {
+            'music': '0 15px 30px rgba(108,92,231,0.15)', // Sombra mais sutil
+            'card': '0 8px 20px rgba(15,23,42,0.05)', // Sombra para cards
+            'card-hover': '0 12px 25px rgba(15,23,42,0.1)' // Sombra para cards no hover
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* pequenas customizacoes */
+    .glass {
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .shadow-music {
+      box-shadow: 0 20px 40px rgba(108,92,231,0.12);
+    }
+    .shadow-mockup {
+      box-shadow: 0 30px 60px rgba(15,23,42,0.2), 0 10px 20px rgba(15,23,42,0.1);
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-white font-inter text-dark antialiased">
+
+  <!-- navbar -->
+  <header id="header" class="fixed w-full z-50 transition-all duration-300">
+    <nav class="max-w-6xl mx-auto flex items-center justify-between p-4 md:p-6">
+      <a href="#" class="flex items-center gap-2">
+        <div class="w-10 h-10 rounded-full bg-prim flex items-center justify-center text-white font-bold text-xl shadow-md">M</div>
+        <span class="hidden md:inline-block font-pop font-extrabold text-2xl text-dark">Melodia</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-8 text-sm text-dark font-medium">
+        <a href="#features" class="hover:text-prim transition-colors">Funcionalidades</a>
+        <a href="#benefits" class="hover:text-prim transition-colors">Benefícios</a>
+        <a href="#testimonials" class="hover:text-prim transition-colors">Depoimentos</a>
+        <a href="#contact" class="hover:text-prim transition-colors">Contato</a>
+        <button id="ctaTop" class="ml-4 px-6 py-3 rounded-full bg-prim text-white text-base font-semibold shadow-music hover:scale-105 transition-transform duration-200">
+          Ouvir Agora
+        </button>
+      </div>
+
+      <div class="md:hidden">
+        <button id="menuBtn" aria-label="Abrir menu" class="p-2 rounded-md bg-white/60 glass border border-gray-100 shadow-sm">
+          <i class="fas fa-bars text-dark"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <main class="pt-24 md:pt-32">
+    <section class="relative overflow-hidden">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center px-6 py-16 md:py-24">
+        <!-- Texto -->
+        <div>
+          <h1 class="text-4xl md:text-6xl font-pop font-extrabold leading-tight text-dark">
+            Melodia: <span class="text-prim-light">Sua Música,</span> <br class="hidden md:block"/><span class="text-prim">Sua Forma</span>
+          </h1>
+          <p class="mt-4 text-lg text-muted max-w-xl font-inter leading-relaxed">
+            Descubra artistas, crie playlists sob medida e escute em qualidade superior — tudo em uma interface intuitiva pensada para quem vive de música.
+          </p>
+
+          <div class="mt-8 flex flex-col sm:flex-row gap-4 items-center">
+            <a href="#" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-prim to-prim-light text-white font-semibold text-lg shadow-music hover:scale-105 transition-transform duration-200"> 
+              <i class="fas fa-play"></i>
+              Começar a Ouvir
+            </a>
+            <a href="#demo" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full border border-gray-300 text-dark font-medium text-lg hover:bg-gray-100 transition-colors duration-200">
+              Ver Demo
+            </a>
+          </div>
+
+          <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-card">
+              <div class="w-12 h-12 rounded-lg bg-gradient-to-tr from-prim to-sec flex items-center justify-center text-white text-xl"> 
+                <i class="fas fa-music"></i>
+              </div>
+              <div>
+                <p class="text-base font-semibold text-dark">Qualidade de som superior</p>
+                <p class="text-sm text-muted mt-1">Streaming lossless e equalização inteligente</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-card">
+              <div class="w-12 h-12 rounded-lg bg-gradient-to-tr from-sec to-accent flex items-center justify-center text-white text-xl"> 
+                <i class="fas fa-user-friends"></i>
+              </div>
+              <div>
+                <p class="text-base font-semibold text-dark">Playlists personalizadas</p>
+                <p class="text-sm text-muted mt-1">Sugestões baseadas no seu gosto</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Imagem / Video -->
+        <div class="relative flex justify-center md:justify-end">
+          <div class="w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl shadow-gray-300 transform rotate-3 hover:rotate-0 transition-transform duration-500">
+            <!-- Placeholder para vídeo/demonstração -->
+            <video id="demo" controls poster="https://source.unsplash.com/random/800x600/?music-player" class="w-full h-64 md:h-96 object-cover bg-black">
+              <!-- Usuário pode trocar a fonte do vídeo para demo real -->
+              <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+              Seu navegador não suporta vídeo.
+            </video>
+          </div>
+
+          <!-- Mockup do app sobreposto -->
+          <div class="absolute -right-4 md:-right-16 -bottom-8 md:-bottom-16 hidden md:block">
+            <img src="https://assets.website-files.com/62e24d271295967f66cb7111/6312a0d0a519ae4e2468305c_phone-mockup.png" alt="Mockup Melodia" class="w-52 h-auto shadow-mockup rounded-3xl transform rotate-6 hover:rotate-0 transition-transform duration-500" />
+          </div>
+        </div>
+      </div>
+
+      <!-- fundo decorativo sutil -->
+      <div class="pointer-events-none absolute inset-0 -z-10 opacity-30">
+        <svg class="w-full h-full" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#6C5CE7"/>
+              <stop offset="100%" stop-color="#00B894"/>
+            </linearGradient>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#g1)"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- BENEFÍCIOS -->
+    <section id="benefits" class="max-w-6xl mx-auto px-6 py-16 md:py-24">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-pop font-bold text-dark">Por que escolher a Melodia?</h2>
+        <p class="text-lg text-muted mt-3 max-w-2xl mx-auto">Recursos pensados para transformar sua experiência musical e levá-la a um novo nível.</p>
+      </div>
+
+      <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- item -->
+        <div class="group p-8 bg-white rounded-2xl shadow-card hover:shadow-card-hover transition-all duration-300 transform hover:-translate-y-2">
+          <div class="w-16 h-16 rounded-full bg-prim/10 text-prim flex items-center justify-center text-3xl mb-6 group-hover:bg-prim group-hover:text-white transition-all duration-300">
+            <i class="fas fa-headphones"></i>
+          </div>
+          <h3 class="mt-4 font-pop font-semibold text-xl text-dark">Qualidade de som superior</h3>
+          <p class="text-base text-muted mt-2">Tecnologia lossless e ajustes automáticos para o seu fone garantem uma imersão total.</p>
+        </div>
+
+        <div class="group p-8 bg-white rounded-2xl shadow-card hover:shadow-card-hover transition-all duration-300 transform hover:-translate-y-2">
+          <div class="w-16 h-16 rounded-full bg-sec/10 text-sec flex items-center justify-center text-3xl mb-6 group-hover:bg-sec group-hover:text-white transition-all duration-300">
+            <i class="fas fa-list-ul"></i>
+          </div>
+          <h3 class="mt-4 font-pop font-semibold text-xl text-dark">Playlists personalizadas</h3>
+          <p class="text-base text-muted mt-2">Crie, compartilhe e receba sugestões inteligentes baseadas no seu gosto musical único.</p>
+        </div>
+
+        <div class="group p-8 bg-white rounded-2xl shadow-card hover:shadow-card-hover transition-all duration-300 transform hover:-translate-y-2">
+          <div class="w-16 h-16 rounded-full bg-accent/10 text-accent flex items-center justify-center text-3xl mb-6 group-hover:bg-accent group-hover:text-white transition-all duration-300">
+            <i class="fas fa-search"></i>
+          </div>
+          <h3 class="mt-4 font-pop font-semibold text-xl text-dark">Descoberta de novos artistas</h3>
+          <p class="text-base text-muted mt-2">Nossos algoritmos e curadoria humana trabalham em sintonia para expandir seus horizontes musicais.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FUNCIONALIDADES (cards) -->
+    <section id="features" class="bg-gray-50 py-16 md:py-24">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-pop font-bold text-dark">Funcionalidades Essenciais</h2>
+          <p class="text-lg text-muted mt-3 max-w-2xl mx-auto">Tudo o que você precisa para uma experiência musical completa e sem interrupções.</p>
+        </div>
+
+        <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <article class="bg-white rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-shadow duration-300">
+            <div class="flex items-center gap-4">
+              <div class="p-4 rounded-xl bg-prim/10 text-prim text-2xl">
+                <i class="fas fa-sliders-h"></i>
+              </div>
+              <div>
+                <h4 class="font-pop font-semibold text-xl text-dark">Equalizador inteligente</h4>
+                <p class="text-sm text-muted">Ajustes automáticos e pré-definições por estilo musical.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="bg-white rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-shadow duration-300">
+            <div class="flex items-center gap-4">
+              <div class="p-4 rounded-xl bg-sec/10 text-sec text-2xl">
+                <i class="fas fa-compact-disc"></i>
+              </div>
+              <div>
+                <h4 class="font-pop font-semibold text-xl text-dark">Modo offline</h4>
+                <p class="text-sm text-muted">Baixe suas playlists e álbuns favoritos para ouvir a qualquer hora, em qualquer lugar.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="bg-white rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-shadow duration-300">
+            <div class="flex items-center gap-4">
+              <div class="p-4 rounded-xl bg-accent/10 text-accent text-2xl">
+                <i class="fas fa-share-alt"></i>
+              </div>
+              <div>
+                <h4 class="font-pop font-semibold text-xl text-dark">Compartilhamento social</h4>
+                <p class="text-sm text-muted">Compartilhe suas faixas e playlists com amigos nas redes sociais.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="bg-white rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-shadow duration-300">
+            <div class="flex items-center gap-4">
+              <div class="p-4 rounded-xl bg-prim/10 text-prim text-2xl">
+                <i class="fas fa-headset"></i>
+              </div>
+              <div>
+                <h4 class="font-pop font-semibold text-xl text-dark">Suporte a diversos formatos</h4>
+                <p class="text-sm text-muted">Compatibilidade com MP3, FLAC, WAV e outros formatos de áudio.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="bg-white rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-shadow duration-300">
+            <div class="flex items-center gap-4">
+              <div class="p-4 rounded-xl bg-sec/10 text-sec text-2xl">
+                <i class="fas fa-microphone"></i>
+              </div>
+              <div>
+                <h4 class="font-pop font-semibold text-xl text-dark">Letras sincronizadas</h4>
+                <p class="text-sm text-muted">Acompanhe suas músicas favoritas com letras em tempo real.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="bg-white rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-shadow duration-300">
+            <div class="flex items-center gap-4">
+              <div class="p-4 rounded-xl bg-accent/10 text-accent text-2xl">
+                <i class="fas fa-bell"></i>
+              </div>
+              <div>
+                <h4 class="font-pop font-semibold text-xl text-dark">Notificações personalizadas</h4>
+                <p class="text-sm text-muted">Receba alertas sobre novos lançamentos dos seus artistas preferidos.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section id="testimonials" class="max-w-6xl mx-auto px-6 py-16 md:py-24">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-pop font-bold text-dark">O que nossos ouvintes dizem</h2>
+        <p class="text-lg text-muted mt-3 max-w-2xl mx-auto">Histórias reais de quem já transformou sua forma de ouvir música.</p>
+      </div>
+
+      <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <figure class="bg-white rounded-2xl p-8 shadow-card hover:shadow-card-hover transition-shadow duration-300">
+          <div class="flex items-center gap-4">
+            <img class="w-16 h-16 rounded-full object-cover border-2 border-prim" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Mariana C." />
+            <div>
+              <strong class="font-pop text-lg text-dark">Mariana C.</strong>
+              <p class="text-sm text-muted">São Paulo, BR</p>
+            </div>
+          </div>
+          <blockquote class="mt-6 text-base text-gray-700 leading-relaxed italic">"A qualidade de som é impressionante — finalmente escuto detalhes que antes passavam despercebidos. A Melodia mudou minha forma de apreciar música!"</blockquote>
+        </figure>
+
+        <figure class="bg-white rounded-2xl p-8 shadow-card hover:shadow-card-hover transition-shadow duration-300">
+          <div class="flex items-center gap-4">
+            <img class="w-16 h-16 rounded-full object-cover border-2 border-sec" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Lucas R." />
+            <div>
+              <strong class="font-pop text-lg text-dark">Lucas R.</strong>
+              <p class="text-sm text-muted">Rio de Janeiro, BR</p>
+            </div>
+          </div>
+          <blockquote class="mt-6 text-base text-gray-700 leading-relaxed italic">"As playlists personalizadas sempre acertam em cheio. Já descobri várias bandas novas aqui que se tornaram minhas favoritas!"</blockquote>
+        </figure>
+
+        <figure class="bg-white rounded-2xl p-8 shadow-card hover:shadow-card-hover transition-shadow duration-300">
+          <div class="flex items-center gap-4">
+            <img class="w-16 h-16 rounded-full object-cover border-2 border-accent" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ana P." />
+            <div>
+              <strong class="font-pop text-lg text-dark">Ana P.</strong>
+              <p class="text-sm text-muted">Belo Horizonte, BR</p>
+            </div>
+          </div>
+          <blockquote class="mt-6 text-base text-gray-700 leading-relaxed italic">"Interface limpa e fácil de usar — adoro a experiência tanto no celular quanto no computador. Nunca foi tão simples curtir minhas músicas."</blockquote>
+        </figure>
+      </div>
+    </section>
+
+    <!-- FORMULÁRIO DE CONTATO -->
+    <section id="contact" class="bg-gradient-to-br from-prim/5 to-sec/5 py-16 md:py-24">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="bg-white rounded-3xl p-8 md:p-12 shadow-2xl shadow-prim/10 text-center">
+          <h3 class="text-3xl font-pop font-bold text-dark">Fique por dentro — Receba novidades!</h3>
+          <p class="text-lg text-muted mt-4 max-w-2xl mx-auto">Insira seu e-mail para receber lançamentos exclusivos, novidades sobre artistas e convites para programas beta.</p>
+
+          <form id="leadForm" class="mt-8 flex flex-col sm:flex-row gap-4 items-center max-w-xl mx-auto">
+            <input required name="email" type="email" placeholder="Seu melhor e-mail" 
+                   class="flex-grow w-full px-5 py-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-prim text-dark text-base" />
+            <button type="submit" 
+                    class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-prim to-prim-light text-white font-semibold text-lg shadow-music hover:scale-105 transition-transform duration-200">
+              Inscrever
+            </button>
+          </form>
+
+          <p id="formMsg" class="mt-6 text-lg text-sec hidden">Obrigado! Seu e-mail foi registrado com sucesso.</p>
+
+          <p class="mt-8 text-sm text-muted/80">Usamos bibliotecas de áudio sem copyright como referência para demos: <a class="underline text-prim hover:text-prim-light" href="https://soundcloud.com/musicas-sem-copyright1" target="_blank" rel="noopener">SoundCloud Música Sem Copyright</a> e <a class="underline text-prim hover:text-prim-light" href="https://freepd.com/" target="_blank" rel="noopener">FreePD</a>.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="bg-dark text-white mt-12 py-12 md:py-16">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div class="col-span-1 md:col-span-2">
+        <h4 class="font-pop font-extrabold text-2xl text-white">Melodia</h4>
+        <p class="text-base text-muted/70 mt-3 max-w-sm">Sua plataforma de música definitiva para descobrir, criar e curtir sem limites.</p>
+      </div>
+
+      <div>
+        <h5 class="font-pop font-semibold text-lg mb-4">Navegação</h5>
+        <ul class="space-y-2">
+          <li><a href="#features" class="text-sm text-muted/70 hover:text-white transition-colors">Funcionalidades</a></li>
+          <li><a href="#benefits" class="text-sm text-muted/70 hover:text-white transition-colors">Benefícios</a></li>
+          <li><a href="#testimonials" class="text-sm text-muted/70 hover:text-white transition-colors">Depoimentos</a></li>
+          <li><a href="#contact" class="text-sm text-muted/70 hover:text-white transition-colors">Contato</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5 class="font-pop font-semibold text-lg mb-4">Siga-nos</h5>
+        <div class="mt-3 flex gap-4">
+          <a href="#" aria-label="Instagram" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white text-xl transition-colors">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" aria-label="Twitter" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white text-xl transition-colors">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" aria-label="Facebook" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white text-xl transition-colors">
+            <i class="fab fa-facebook"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-white/10 mt-12 pt-8">
+      <div class="max-w-6xl mx-auto px-6 text-sm text-white/60 flex flex-col md:flex-row justify-between items-center">
+        <span>© <span id="year"></span> Melodia. Todos os direitos reservados.</span>
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-6 mt-4 md:mt-0">
+          <a href="#" class="underline hover:text-white transition-colors">Política de Privacidade</a>
+          <a href="#" class="underline hover:text-white transition-colors">Termos de Serviço</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS: menu transparente, form, interações simples -->
+  <script>
+    // Menu transparente -> fica com glass ao rolar
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) { // Aumentei o threshold para 50px
+        header.classList.add('bg-white/80', 'glass', 'shadow-md');
+        header.classList.remove('bg-transparent'); // Garante que transparente não esteja lá
+      } else {
+        header.classList.remove('bg-white/80', 'glass', 'shadow-md');
+        header.classList.add('bg-transparent');
+      }
+    });
+
+    // Menu mobile simples (toggle)
+    const menuBtn = document.getElementById('menuBtn');
+    menuBtn && menuBtn.addEventListener('click', () => {
+      const navContainer = document.createElement('div');
+      navContainer.className = 'fixed inset-0 bg-black/50 z-[99] flex justify-end transition-opacity duration-300 opacity-0';
+      
+      navContainer.innerHTML = `
+        <div class="w-72 bg-white h-full p-8 shadow-lg transform translate-x-full transition-transform duration-300">
+          <button id="closeMenu" class="mb-8 p-2 rounded-md float-right text-dark hover:bg-gray-100">
+            <i class="fas fa-times text-2xl"></i>
+          </button>
+          <div class="clear-both"></div>
+          <nav class="flex flex-col gap-6 text-dark text-lg font-semibold mt-8">
+            <a href="#features" class="hover:text-prim transition-colors" onclick="document.getElementById('closeMenu').click()">Funcionalidades</a>
+            <a href="#benefits" class="hover:text-prim transition-colors" onclick="document.getElementById('closeMenu').click()">Benefícios</a>
+            <a href="#testimonials" class="hover:text-prim transition-colors" onclick="document.getElementById('closeMenu').click()">Depoimentos</a>
+            <a href="#contact" class="hover:text-prim transition-colors" onclick="document.getElementById('closeMenu').click()">Contato</a>
+            <button class="mt-6 px-6 py-3 rounded-full bg-gradient-to-r from-prim to-prim-light text-white text-base font-semibold shadow-music hover:scale-105 transition-transform duration-200" onclick="document.getElementById('closeMenu').click()">Ouvir Agora</button>
+          </nav>
+        </div>
+      `;
+
+      document.body.appendChild(navContainer);
+      // Forçar reflow para aplicar transição
+      setTimeout(() => {
+        navContainer.classList.add('opacity-100');
+        navContainer.querySelector('div').classList.remove('translate-x-full');
+      }, 10);
+
+      const closeMenu = document.getElementById('closeMenu');
+      close
