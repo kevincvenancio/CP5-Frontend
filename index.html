@@ -70,7 +70,10 @@
   <header id="header" class="fixed w-full z-50 transition-all duration-300">
     <nav class="max-w-6xl mx-auto flex items-center justify-between p-4 md:p-6">
       <a href="#" class="flex items-center gap-2">
-        <div class="w-10 h-10 rounded-full bg-prim flex items-center justify-center text-white font-bold text-xl shadow-md">M</div>
+        <div class="w-12 h-12 rounded-full bg-prim flex items-center justify-center text-white text-2xl shadow-lg">
+  <i class="fas fa-music"></i>
+</div>
+
         <span class="hidden md:inline-block font-pop font-extrabold text-2xl text-dark dark:text-white">Melodia</span>
       </a>
 
@@ -296,47 +299,65 @@
     </section>
 
     <!-- depoimentos -->
-    <section id="depoimentos" class="max-w-6xl mx-auto px-6 py-16 md:py-24">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-pop font-bold text-dark dark:text-white">O que nossos ouvintes dizem</h2>
-        <p class="text-lg text-muted dark:text-gray-300 mt-3 max-w-2xl mx-auto">Histórias reais de quem já transformou sua forma de ouvir música.</p>
+<section id="depoimentos" class="max-w-6xl mx-auto px-6 py-16 md:py-24">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl md:text-4xl font-pop font-bold text-dark dark:text-white">O que nossos ouvintes dizem</h2>
+    <p class="text-lg text-muted dark:text-gray-300 mt-3 max-w-2xl mx-auto">Histórias reais de quem já transformou sua forma de ouvir música.</p>
+  </div>
+
+  <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <figure class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-card hover:shadow-card-hover dark:hover:shadow-none transition-shadow duration-300">
+      <div class="flex items-center gap-4">
+        <img class="w-16 h-16 rounded-full object-cover border-2 border-prim" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Mariana C." />
+        <div>
+          <strong class="font-pop text-lg text-dark dark:text-white">Mariana C.</strong>
+          <p class="text-sm text-muted dark:text-gray-300">São Paulo, BR</p>
+        </div>
       </div>
-
-      <div class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <figure class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-card hover:shadow-card-hover dark:hover:shadow-none transition-shadow duration-300">
-          <div class="flex items-center gap-4">
-            <img class="w-16 h-16 rounded-full object-cover border-2 border-prim" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Mariana C." />
-            <div>
-              <strong class="font-pop text-lg text-dark dark:text-white">Mariana C.</strong>
-              <p class="text-sm text-muted dark:text-gray-300">São Paulo, BR</p>
-            </div>
-          </div>
-          <blockquote class="mt-6 text-base text-gray-700 dark:text-gray-300 leading-relaxed italic">"A qualidade de som é impressionante — finalmente escuto detalhes que antes passavam despercebidos. A Melodia mudou minha forma de apreciar música!"</blockquote>
-        </figure>
-
-        <figure class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-card hover:shadow-card-hover dark:hover:shadow-none transition-shadow duration-300">
-          <div class="flex items-center gap-4">
-            <img class="w-16 h-16 rounded-full object-cover border-2 border-sec" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Lucas R." />
-            <div>
-              <strong class="font-pop text-lg text-dark dark:text-white">Lucas R.</strong>
-              <p class="text-sm text-muted dark:text-gray-300">Rio de Janeiro, BR</p>
-            </div>
-          </div>
-          <blockquote class="mt-6 text-base text-gray-700 dark:text-gray-300 leading-relaxed italic">"As playlists personalizadas sempre acertam em cheio. Já descobri várias bandas novas aqui que se tornaram minhas favoritas!"</blockquote>
-        </figure>
-
-        <figure class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-card hover:shadow-card-hover dark:hover:shadow-none transition-shadow duration-300">
-          <div class="flex items-center gap-4">
-            <img class="w-16 h-16 rounded-full object-cover border-2 border-accent" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ana P." />
-            <div>
-              <strong class="font-pop text-lg text-dark dark:text-white">Ana P.</strong>
-              <p class="text-sm text-muted dark:text-gray-300">Belo Horizonte, BR</p>
-            </div>
-          </div>
-          <blockquote class="mt-6 text-base text-gray-700 dark:text-gray-300 leading-relaxed italic">"Interface limpa e fácil de usar — adoro a experiência tanto no celular quanto no computador. Nunca foi tão simples curtir minhas músicas."</blockquote>
-        </figure>
+      <div class="flex items-center mt-3">
+        <!-- Estrelas de avaliação -->
+        <span class="text-yellow-400">
+          ★★★★☆
+        </span>
       </div>
-    </section>
+      <blockquote class="mt-6 text-base text-gray-700 dark:text-gray-300 leading-relaxed italic">"A qualidade de som é impressionante — finalmente escuto detalhes que antes passavam despercebidos. A Melodia mudou minha forma de apreciar música!"</blockquote>
+    </figure>
+
+    <figure class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-card hover:shadow-card-hover dark:hover:shadow-none transition-shadow duration-300">
+      <div class="flex items-center gap-4">
+        <img class="w-16 h-16 rounded-full object-cover border-2 border-sec" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Lucas R." />
+        <div>
+          <strong class="font-pop text-lg text-dark dark:text-white">Lucas R.</strong>
+          <p class="text-sm text-muted dark:text-gray-300">Rio de Janeiro, BR</p>
+        </div>
+      </div>
+      <div class="flex items-center mt-3">
+        <!-- Estrelas de avaliação -->
+        <span class="text-yellow-400">
+          ★★★★★
+        </span>
+      </div>
+      <blockquote class="mt-6 text-base text-gray-700 dark:text-gray-300 leading-relaxed italic">"As playlists personalizadas sempre acertam em cheio. Já descobri várias bandas novas aqui que se tornaram minhas favoritas!"</blockquote>
+    </figure>
+
+    <figure class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-card hover:shadow-card-hover dark:hover:shadow-none transition-shadow duration-300">
+      <div class="flex items-center gap-4">
+        <img class="w-16 h-16 rounded-full object-cover border-2 border-accent" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ana P." />
+        <div>
+          <strong class="font-pop text-lg text-dark dark:text-white">Ana P.</strong>
+          <p class="text-sm text-muted dark:text-gray-300">Belo Horizonte, BR</p>
+        </div>
+      </div>
+      <div class="flex items-center mt-3">
+        <!-- Estrelas de avaliação -->
+        <span class="text-yellow-400">
+          ★★★☆☆
+        </span>
+      </div>
+      <blockquote class="mt-6 text-base text-gray-700 dark:text-gray-300 leading-relaxed italic">"Interface limpa e fácil de usar — adoro a experiência tanto no celular quanto no computador. Nunca foi tão simples curtir minhas músicas."</blockquote>
+    </figure>
+  </div>
+</section>
 
     <!-- form de ctt -->
     <section id="ctt" class="bg-gradient-to-br from-prim/5 to-sec/5 dark:from-transparent dark:to-transparent py-16 md:py-24">
